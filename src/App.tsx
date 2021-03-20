@@ -99,52 +99,7 @@ const App: React.FC = () => {
   return (
     <IonApp>
       <IonContent>
-        <IonSlides pager={true} options={slideOpts} ref={slider}>
-          <IonSlide>
-            <SlideContent
-              title={`Привет, ${name}, Мини-приложения в Aitu`}
-              onClick={handleButtonClick}
-              description={
-                "Расскажем, что это и как использовать aitu.apps для своего бизнеса"
-              }
-              buttonTitle={"Я готов!"}
-              imgSrc={"/assets/slide1.png"}
-            ></SlideContent>
-          </IonSlide>
-          <IonSlide>
-            <SlideContent
-                title={"+800.000 пользователей Aitu"}
-                onClick={handleButtonClick}
-                description={
-                  "Могут увидеть ваше мини-приложение и стать его пользователями"
-                }
-                buttonTitle={"Интересно"}
-                imgSrc={"/assets/slide2.png"}
-            ></SlideContent>
-          </IonSlide>
-          <IonSlide>
-            <SlideContent
-                title={"Всегда под рукой "}
-                onClick={handleButtonClick}
-                description={
-                  "Каталог с мини-приложениями находится на центральной вкладке. Пользователи легко его найдут"
-                }
-                buttonTitle={"Что ещё?"}
-                imgSrc={"/assets/slide3.png"}
-            ></SlideContent>
-          </IonSlide>
-          <IonSlide>
-            <SlideContent
-                title={"Баннер с ваши предложением"}
-                onClick={handleButtonClick}
-                description={
-                  "         Уникальная скидка, спецпредложение или акция. Донесите ценное предложение до всех пользователей Aitu"
-                }
-                buttonTitle={"Далее"}
-                imgSrc={"/assets/slide4.png"}
-            ></SlideContent>
-          </IonSlide>
-        </IonSlides>
+
       </IonContent>
     </IonApp>
   );
