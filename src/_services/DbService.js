@@ -1,10 +1,10 @@
 import axios from 'axios'
 
-const URL = 'http://23.111.206.237:8080/'
+const URL = 'http://37.150.17.48:8080/'
 
 class DbService {
     async register(email, password, name) {
-        return axios.post(`${URL}/register`, {email, password, name})
+        return axios.post(`${URL}register`, {email, password, name})
     }
 
     async login(username, password) {
