@@ -7,6 +7,7 @@ import "./App.css";
 import Chats from "./components/Chats/Chats";
 import ChatDetails from "./components/ChatDetails/ChatDetails";
 import Auth from "./components/Auth/Auth";
+import Home from "./components/Home/Home";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -26,6 +27,7 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+import {RecoilRoot} from "recoil";
 
 const App = () => {
   async function getMe() {
@@ -48,9 +50,9 @@ const App = () => {
   return (
     <IonApp>
         <Switch>
+          <Route path={'/'} exact render={() => <Home/>}/>
           <Route path={'/auth'} exact render={() => <Auth register={false}/>}/>
           <Route path={'/register'} exact render={() => <Auth register={true}/>}/>
-          {/*<Route path={'/register'} exact render={() => <Register/>}/>*/}
           <Route path={'/chats'} exact render={() => <Chats/>}/>
           <Route path={'/chats/:id'} children={<Child/>}/>
         </Switch>
@@ -66,7 +68,9 @@ function Child() {
   }
 
   return (
-      <ChatDetails state={state}/>
+      <RecoilRoot>
+        <ChatDetails state={state}/>
+      </RecoilRoot>
   );
 }
 

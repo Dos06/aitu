@@ -16,6 +16,7 @@
     "@types/react-dom": "^16.9.10",
     "@types/react-router": "^5.1.11",
     "@types/react-router-dom": "^5.1.7",
+    "antd": "^4.14.0",
     "axios": "^0.21.1",
     "ionicons": "^5.4.0",
     "ngrok": "^3.4.1",
@@ -24,6 +25,9 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
+    "react-scroll-to-bottom": "^4.1.0",
+    "recoil": "^0.1.3",
+    "stompjs": "^2.3.3",
     "typescript": "^4.1.3",
     "web-vitals": "^0.2.4",
     "workbox-background-sync": "^5.1.4",
@@ -64,7 +68,8 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "2.4.6"
+    "@capacitor/cli": "2.4.6",
+    "sockjs-client": "^1.5.0"
   },
   "description": "An Ionic project"
 }

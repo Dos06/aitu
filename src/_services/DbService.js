@@ -1,14 +1,29 @@
 import axios from 'axios'
 
-const URL = 'http://37.150.17.48:8080/'
+const URL = 'http://23.111.206.237:8080/'
+const configHeaders = {
+    headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': 256,
+    }
+}
 
 class DbService {
-    async register(email, password, name) {
-        return axios.post(`${URL}register`, {email, password, name})
+
+    async register({username, password}) {
+        return axios.post(
+            `${URL}register`,
+            {username, password},
+            configHeaders
+        )
     }
 
-    async login(username, password) {
-        return axios.post(`${URL}signin?username=${username}&password=${password}`, {}).then(response => {
+    async login({username, password}) {
+        return axios.post(
+            `${URL}signin?username=${username}&password=${password}`,
+            {},
+            configHeaders
+        ).then(response => {
             let token = response.data
             if (token) {
                 localStorage.setItem('token', JSON.stringify(token))
@@ -27,6 +42,10 @@ class DbService {
         return JSON.parse(localStorage.getItem('token'))['accessToken']
     }
 
+    // saveCurrentUser(data) {
+    //     localStorage.setItem('profile', JSON.stringify(data))
+    // }
+
     getCurrentUser() {
         let token = this.getCurrentToken()
         return axios.get(`${URL}current_user/${token}`, {
@@ -40,14 +59,20 @@ class DbService {
         })
     }
 
-    async sendMessage(message) {
+    async sendMessage({message, senderId, recipientId}) {
+        return await axios.post(`${URL}chats/chat/${senderId}/${recipientId}/${message}`)
+    }
+
+    async getChatsByToken() {
         let token = this.getCurrentToken()
-        return axios.post(`${URL}`)
+        return await axios.get(`${URL}chats/${token}`)
     }
 
-    getChatData() {
-
+    async getChatById(id) {
+        return await axios.get(`${URL}chats/chat/${id}`)
     }
+
+    // async get
 }
 
 export default new DbService()

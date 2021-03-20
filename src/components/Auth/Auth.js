@@ -21,11 +21,11 @@ const Auth = (props) => {
 
     const authorize = () => {
         reg ?
-            DbService.register(username, password)
+            DbService.register({username: username, password: password})
                 .then(() => history.push('/chats'))
                 .catch(e => console.log(e))
             :
-            DbService.login(username, password)
+            DbService.login({username: username, password: password})
                 .then(() => history.push('/chats'))
                 .catch(e => console.log(e))
     }
@@ -48,7 +48,7 @@ const Auth = (props) => {
                         <IonInput type={'password'} value={password} placeholder="Enter Password"
                                   onIonChange={e => setPassword(e.target.value)}/>
                     </IonItem>
-                    <IonButton expand={'full'} onClick={authorize}>SUBMIT</IonButton>
+                    <IonButton expand={'block'} onClick={authorize}>SUBMIT</IonButton>
                 </IonList>
             </IonContent>
         </>
