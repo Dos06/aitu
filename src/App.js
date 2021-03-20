@@ -6,6 +6,7 @@ import {Route, Switch, useParams} from 'react-router-dom';
 import "./App.css";
 import Chats from "./components/Chats/Chats";
 import ChatDetails from "./components/ChatDetails/ChatDetails";
+import Auth from "./components/Auth/Auth";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -32,7 +33,6 @@ const App = () => {
       const data = await aituBridge.getMe();
       setName(data.name);
     } catch (e) {
-      // handle error
       console.log(e);
     }
   }
@@ -48,6 +48,9 @@ const App = () => {
   return (
     <IonApp>
         <Switch>
+          <Route path={'/auth'} exact render={() => <Auth register={false}/>}/>
+          <Route path={'/register'} exact render={() => <Auth register={true}/>}/>
+          {/*<Route path={'/register'} exact render={() => <Register/>}/>*/}
           <Route path={'/chats'} exact render={() => <Chats/>}/>
           <Route path={'/chats/:id'} children={<Child/>}/>
         </Switch>

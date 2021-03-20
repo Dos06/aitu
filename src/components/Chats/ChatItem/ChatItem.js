@@ -1,6 +1,6 @@
 import React from "react";
 import {IonAvatar, IonItem, IonLabel, IonIcon} from "@ionic/react";
-import s from './ChatItem.module.css';
+// import s from './ChatItem.module.css';
 import {useHistory} from "react-router";
 
 const ChatItem = (props) => {
@@ -14,7 +14,7 @@ const ChatItem = (props) => {
             <IonLabel>
                 <h2>{props.item.name}</h2>
                 <p>
-                    <IonIcon name={'checkmarkDone'} className={s.messageStatus + ' ' + s.read}/>
+                    {/*<IonIcon name={'checkmarkDone'} className={s.messageStatus + ' ' + s.read}/>*/}
                     {props.item.lastMessage}
                 </p>
             </IonLabel>
